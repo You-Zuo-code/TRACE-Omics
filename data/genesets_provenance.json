@@ -1,0 +1,33 @@
+{
+  "msigdb_version": "2025.1.Hs",
+  "audit_date": "2026-10-26",
+  "source_url": "https://zenodo.org/records/15800824/files/msigdb.2025.1.Hs.rds?download=1",
+  "source_md5": "d898c396b109d61ef9b20b0632f0bfa7",
+  "source_provider": "msigdbr 25.1.1 reference data",
+  "verification": "Every bundled set name and gene-symbol membership exactly matches this source after the recorded size filter. The original build date and installed msigdbr version were not recorded.",
+  "transformations": "Unique human gene symbols; retain sets of 5 through 500 genes inclusive; remove HALLMARK_ from Hallmark names. No gene membership changes within retained sets.",
+  "fingerprint_format": "UTF-8; bytewise-sorted set names, then unique bytewise-sorted symbols; tab-separated fields, newline-separated sets, no trailing newline",
+  "collections": [
+    {
+      "name": "Hallmark",
+      "n_sets": 50,
+      "sha256": "f5c574579c147bbd8b3c794c62b5ca029781f3a5acec52285f10344f32d26750"
+    },
+    {
+      "name": "KEGG",
+      "n_sets": 844,
+      "sha256": "f082ca36cfa4a2763a413b2864a6ba5807bee76140993d01b123a141e85be95a"
+    },
+    {
+      "name": "Reactome",
+      "n_sets": 1766,
+      "sha256": "e5573cfbe6cdffaffd583ad2c25dfd5f5dca3c97d5dd82c43ff504c4ab7e2d28"
+    },
+    {
+      "name": "GO:BP",
+      "n_sets": 7326,
+      "sha256": "8b01e15b0905a7108284e5b1a7e82b55757236a8e3b9ee41c4f93cb7ded0f5e7"
+    }
+  ],
+  "license_terms_url": "https://www.gsea-msigdb.org/gsea/msigdb_license_terms.jsp"
+}

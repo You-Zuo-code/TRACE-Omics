@@ -1,0 +1,11 @@
+.library/
+.Rhistory
+.Renviron
+.Renviron.*
+.RData
+.Ruserdata
+.Rproj.user/
+.DS_Store
+Rplots*.pdf
+*.log
+rsconnect/

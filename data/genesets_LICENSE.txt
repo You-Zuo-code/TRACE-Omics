@@ -1,0 +1,22 @@
+Gene-set sources and terms
+
+The gene sets in atlas.rds match MSigDB 2025.1.Hs, obtained through the
+msigdbr reference data. See genesets_provenance.json for verification and
+the size/name transformations. The software MIT licence does not cover them.
+
+Hallmark, Reactome and GO Biological Process:
+Copyright (c) 2004-2025 Broad Institute, Inc., Massachusetts Institute of
+Technology, and Regents of the University of California.
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+KEGG MEDICUS (names beginning KEGG_MEDICUS_):
+Copyright (c) 2009-2023 Kanehisa Laboratories, all rights reserved.
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+These gene-set materials and adaptations retain their separate share-alike terms.
+
+Other KEGG_ sets:
+Copyright (c) 1995-2017 Kanehisa Laboratories, all rights reserved.
+
+Collection terms:
+https://www.gsea-msigdb.org/gsea/msigdb_license_terms.jsp
+https://www.kegg.jp/kegg/legal.html

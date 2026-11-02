@@ -1,0 +1,10 @@
+Module,Method,Pig (350 samples),Human (120 samples),Notes
+Landscape (PCA/UMAP),precomputed embedding,<0.01 s,<0.01 s,embeddings cached at load; recolour is instant
+Trajectory,group means / GAM,<0.01 s,<0.01 s,per-feature; GAM adds ~0.1 s
+Differential expression,limma moderated t,0.4 s,0.2 s,paired blocking negligible overhead
+Enrichment (GSEA),fgsea,4.0 s,3.2 s,ranks all genes; Hallmark collection
+mRNA–protein integration,paired limma × 2 + Pearson,0.6 s,0.3 s,genes measured in both layers
+Concordance (genome-wide),per-gene Spearman,0.6 s,0.3 s,across matched samples
+Pathways (GSVA activity),GSVA / precomputed,0.3 s,0.2 s,precomputed Hallmark for built-in studies
+Co-expression (WGCNA),WGCNA blockwise,3.1 s,1.1 s,top 2500 var genes; scales with sample n
+DIABLO,mixOmics block-sPLSDA,1–5 s,1–3 s,depends on nfeat and #blocks

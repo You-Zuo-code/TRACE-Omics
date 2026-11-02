@@ -1,0 +1,46 @@
+Type: Project
+Package: TRACEOmics
+Title: Longitudinal Multi-Omics Analysis
+Version: 1.0.0
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.5.0)
+Imports:
+    AnnotationDbi,
+    BiocManager,
+    bslib,
+    circlize,
+    colourpicker,
+    ComplexHeatmap,
+    data.table,
+    digest,
+    DT,
+    dynamicTreeCut,
+    e1071,
+    fastcluster,
+    fgsea,
+    ggplot2,
+    ggrepel,
+    GSVA,
+    htmltools,
+    jsonlite,
+    limma,
+    matrixStats,
+    mgcv,
+    mixOmics,
+    org.Hs.eg.db,
+    plotly,
+    R.utils,
+    ragg,
+    renv,
+    scales,
+    shiny,
+    shinyjs,
+    sva,
+    systemfonts,
+    svglite,
+    testthat,
+    uwot,
+    viridisLite,
+    WGCNA,
+    zip

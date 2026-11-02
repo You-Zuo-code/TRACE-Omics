@@ -1,0 +1,13 @@
+{
+  "resource": "babelgene (bundled HGNC/HCOP-derived multi-database orthologs)",
+  "resource_version": "22.9",
+  "ortholog_species": "Sus scrofa (taxon 9823)",
+  "direction": "human -> pig, restricted to atlas shared gene symbols",
+  "build_date": "2026-07-23",
+  "atlas_build": "v2 + clinical + pathways",
+  "shared_symbols": 14470,
+  "one_to_one": 14287,
+  "one_to_one_high_confidence_support_ge5": 13368,
+  "ambiguous": 18,
+  "symbol_only_no_record": 165
+}

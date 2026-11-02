@@ -1,0 +1,10 @@
+{
+  "source": "HGNC HCOP via babelgene",
+  "version": "22.9",
+  "url": "https://igordot.github.io/babelgene/",
+  "built": "2026-09-06",
+  "species": [9606, 9823, 10090, 10116],
+  "rows": 71133,
+  "sha256": "d98b9464ca4a8792045ef6c677484c7662d26ad9db0361b94678278df03c8e57",
+  "rule": "Bidirectional unique Entrez-gene pairs in the complete species snapshot, before any input or support filtering; at least three supporting resources. This is snapshot uniqueness, not an Ensembl homology classification."
+}
