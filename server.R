@@ -342,6 +342,8 @@ function(input, output, session) {
 
   xs_ortho_ok <- reactive({ dA <- csr_dA(); dB <- csr_dB(); req(dA, dB)
     xs_ortholog_applicable(dA, dB) })
+  # The checkbox is rendered by the server, so it is unset until that output arrives.
+  csr_1to1 <- reactive(!identical(input$csr_1to1, FALSE))
   output$csr_ortho_ui <- renderUI({
     a <- tryCatch(xs_ortho_ok(), error = function(e) NULL); req(a)
     if (isTRUE(a$ok))
@@ -480,7 +482,7 @@ function(input, output, session) {
     withProgress(message = "Comparing trajectories", value = .3, {
       cs_trajectory(csr_dA(), csr_dB(), input$csr_base, input$csr_measure,
         manual = if (identical(input$csr_align, "manual")) xs_manual_map() else NULL,
-                    isTRUE(input$csr_1to1), input$csr_method, csr_labA(), csr_labB(),
+                    csr_1to1(), input$csr_method, csr_labA(), csr_labB(),
                     align = input$csr_align %||% "label")
     })
   }, ignoreNULL = FALSE)
@@ -496,7 +498,7 @@ function(input, output, session) {
     withProgress(message = "Split-half noise ceiling", value = .3, {
       cs_noise_ceiling(csr_dA(), csr_dB(), input$csr_base, input$csr_measure,
         manual = if (identical(input$csr_align, "manual")) xs_manual_map() else NULL,
-                       isTRUE(input$csr_1to1), csr_labA(), csr_labB(),
+                       csr_1to1(), csr_labA(), csr_labB(),
                        align = input$csr_align %||% "label")
     })
   }, ignoreNULL = FALSE)
@@ -2641,7 +2643,7 @@ function(input, output, session) {
                xs_gen(isolate(xs_gen()) + 1L), ignoreInit = TRUE)
 
   xs_bridge <- reactive({ dA <- csr_dA(); dB <- csr_dB(); req(dA, dB)
-    xs_feature_bridge(dA, dB, isTRUE(input$csr_1to1)) })
+    xs_feature_bridge(dA, dB, csr_1to1()) })
 
   output$xs_tp_map_ui <- renderUI({
     dA <- csr_dA(); dB <- csr_dB(); req(dA, dB)
@@ -2780,7 +2782,7 @@ function(input, output, session) {
     withProgress(message = "Fitting both studies", value = .25,
       detail = if (np > 0) sprintf("then %d permutations of %s", np, csr_labB()) else NULL, {
       xs_de_compare(dA, dB, xs_specA(), xs_specB(), csr_labA(), csr_labB(),
-                    fdr = input$xs_fdr %||% 0.05, one_to_one_only = isTRUE(input$csr_1to1),
+                    fdr = input$xs_fdr %||% 0.05, one_to_one_only = csr_1to1(),
                     n_perm = np, seed = trace_seed())
     })
   }, module = "cross-dataset differential concordance",

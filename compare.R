@@ -659,7 +659,7 @@ xs_de_scatter <- function(o, cols = NULL) {
   lv <- xs_agree_levels(o$labA, o$labB)
   cc <- fb_cols(lv, cols, PAL_NAMES[1]); cc[is.na(cc)] <- "#C9D2DA"
   d$col <- unname(cc[as.character(d$Agreement)])
-  plot_ly(d, x = ~logFC_A, y = ~logFC_B, type = "scattergl", mode = "markers",
+  plot_ly(d, x = ~logFC_A, y = ~logFC_B, type = "scatter", mode = "markers",
           marker = list(size = 4, color = ~col, opacity = .75),
           text = ~sprintf("%s<br>%s: %.2f (FDR %.3g)<br>%s: %.2f (FDR %.3g)",
                           Feature, o$labA, logFC_A, FDR_shared_A, o$labB, logFC_B, FDR_shared_B),

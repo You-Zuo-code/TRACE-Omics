@@ -163,3 +163,28 @@ test_that("interactive volcano and baseline views convert to plotly", {
   expect_true(isTRUE(baseline$ok))
   expect_s3_class(suppressWarnings(byod_baseline_plot(baseline)), "plotly")
 })
+
+test_that("the fold-change scatter does not depend on WebGL", {
+  lv <- xs_agree_levels("A", "B")
+  o <- list(ok = TRUE, labA = "A", labB = "B", r = .5, r_sig = NA_real_, n_shared = 2L, n_sig_A = 0L,
+            tab = data.frame(Feature = c("g1", "g2"), logFC_A = c(1, -1), logFC_B = c(1, -1),
+                             FDR_shared_A = c(.01, .5), FDR_shared_B = c(.01, .5),
+                             Agreement = factor(lv[c(1, length(lv))], levels = lv)))
+  built <- plotly::plotly_build(xs_de_scatter(o))
+  expect_identical(unique(vapply(built$x$data, `[[`, "", "type")), "scatter")
+})
+
+test_that("an unset 1:1 ortholog control keeps its default restriction", {
+  root <- normalizePath(if (file.exists("global.R")) "." else "../..")
+  wd <- getwd(); setwd(root); on.exit(setwd(wd), add = TRUE)
+  server <- source("server.R", local = TRUE)$value
+  shiny::testServer(server, {
+    session$setInputs(csr_A = "nmp_pig", csr_B = "nmp_hum", csr_layA = "mRNA", csr_layB = "mRNA")
+    expect_null(input$csr_1to1)
+    restricted <- xs_bridge()$n_shared
+    session$setInputs(csr_1to1 = FALSE)
+    expect_gt(xs_bridge()$n_shared, restricted)
+    session$setInputs(csr_1to1 = TRUE)
+    expect_equal(xs_bridge()$n_shared, restricted)
+  })
+})
